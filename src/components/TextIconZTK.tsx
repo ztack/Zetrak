@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-type TextZTKProps = {
+type TextIconZTKProps = {
   value: string;
   onChangeText: (text: string) => void;
   placeholder?: string;
@@ -18,7 +18,7 @@ type TextZTKProps = {
   style?: StyleProp<ViewStyle>;
 };
 
-export default function TextZTK({
+export default function TextIconZTK({
   value,
   onChangeText,
   placeholder = 'Escribe aquí...',
@@ -26,7 +26,7 @@ export default function TextZTK({
   keyboardType = 'default',
   secureTextEntry = false,
   style
-}: TextZTKProps) {
+}: TextIconZTKProps) {
   return (
     <View style={[styles.inputContainer, style]} >
       <TextInput
