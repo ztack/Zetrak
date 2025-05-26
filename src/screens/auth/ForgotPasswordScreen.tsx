@@ -17,10 +17,11 @@ import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { AuthStackParamList } from "@navigation/AuthNavigator";
 import { colors } from "@constants/colors";
-import TextZTK from "@components/TextZTK";
+import TextIconZTK from "@components/TextIconZTK";
 import ButtonZTK from "@components/ButtonZTK";
 import LinkZTK from "@components/LinkZTK";
 import TitleZTK from "@components/TitleZTK";
+import LinkIconZTK from "@components/LinkIconZTK";
 
 type NavigationProp = StackNavigationProp<AuthStackParamList, "ForgotPassword">;
 
@@ -57,15 +58,16 @@ export default function ForgotPasswordScreen() {
         >
           <SafeAreaView style={styles.safeArea}>
             <TitleZTK value="Recuperar contraseña"></TitleZTK>
-            <TextZTK
+            <TextIconZTK
               value={email}
               onChangeText={setEmail}
               style= {{marginTop: 20}}
               placeholder="Correo electrónico"
             />
             <ButtonZTK title="Enviar enlace" style={styles.button} onPress={handlePasswordReset} />
-            <LinkZTK
+            <LinkIconZTK
               value="Volver a iniciar sesión"
+              iconName="chevron-back-outline"
               onPress={() => navigation.navigate("Login")}
             />
           </SafeAreaView>
@@ -88,7 +90,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(24, 24, 24, 0.8)",
     borderRadius: 15,
     padding: 30,
-    shadowColor: "#FFA726",
+    borderWidth: 1,
+    borderColor: "#3d3d3d",
   },
   button: {
     marginTop: 10

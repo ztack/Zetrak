@@ -1,4 +1,4 @@
-// src/constants/colors.ts
+
 export const colors = {
   background: '#181818',
   primary: '#FFA726',

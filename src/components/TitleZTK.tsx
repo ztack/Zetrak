@@ -1,20 +1,22 @@
 import React from "react";
 import {
   StyleSheet,
-  TouchableOpacity,
   Text,
-  GestureResponderEvent,
   ViewStyle,
   StyleProp,
+  TextStyle
 } from "react-native";
 
 type TitleZTKProps = {
   value: string;
-  style?: StyleProp<ViewStyle>;
+  style?: StyleProp<TextStyle>;
 };
 
-export default function TitleZTK({ value, style }: TitleZTKProps) {
-  return <Text style={styles.texto}> {value} </Text>;
+export default function TitleZTK({ 
+  value = "", 
+  style 
+}: TitleZTKProps) {
+  return <Text style={[styles.texto, style]}> {value} </Text>;
 }
 
 const styles = StyleSheet.create({
@@ -23,6 +25,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#FFA726",
     marginBottom: 5,
-    letterSpacing: 1,
+    width: "100%",
+    height: 40
   },
 });

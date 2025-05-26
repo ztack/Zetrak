@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from '@screens/auth/LoginScreen';
 import RegisterScreen from '@screens/auth/RegisterScreen';
 import ForgotPasswordScreen from '@screens/auth/ForgotPasswordScreen';
+import HomeNavigator from './HomeNavigator';
 
 export type AuthStackParamList = {
   Login: undefined;
@@ -13,10 +14,12 @@ export type AuthStackParamList = {
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 
-export default function AuthNavigator() {
+export default function AuthNavigator({ setIsAuthenticated }: { setIsAuthenticated: (auth: boolean) => void }) {
   return (
-    <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Login" component={LoginScreen} />
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Login">
+        {() => <LoginScreen setIsAuthenticated={setIsAuthenticated} />}
+      </Stack.Screen>
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
     </Stack.Navigator>
