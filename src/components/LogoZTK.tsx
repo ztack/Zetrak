@@ -10,10 +10,11 @@ import {
   ViewStyle,
   StyleProp,
   Image,
+  ImageStyle,
 } from "react-native";
 
 type LogoZTKProps = {
-  style?: StyleProp<ViewStyle>;
+  style?: StyleProp<ImageStyle>;
 };
 
 export default function LogoZTK({ style }: LogoZTKProps) {
@@ -21,7 +22,7 @@ export default function LogoZTK({ style }: LogoZTKProps) {
   return (
     <Image
       source={require("../../assets/images/logo.png")}
-      style={styles.logo}
+      style={[style, styles.logo]}
       resizeMode="contain"
     />
   );
